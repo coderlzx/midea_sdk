@@ -54,6 +54,12 @@
     </dependency>
     <dependency>
       <groupId>com.framework</groupId>
+      <artifactId>net</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.framework</groupId>
       <artifactId>immersionbar</artifactId>
       <version>1.0.0</version>
       <scope>compile</scope>
