@@ -11,9 +11,9 @@
   <url>file://H:/localMaven/release</url>
   <dependencies>
     <dependency>
-      <groupId>uhome_door_sdk20190305</groupId>
+      <groupId>com.segi.door</groupId>
       <artifactId>door</artifactId>
-      <version>unspecified</version>
+      <version>1.0.0</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
