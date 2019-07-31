@@ -33,6 +33,9 @@ api ("xxx:xxx:xxx") {
 >minSdkVersion必须>=15，  compileSdkVersion必须>=28
 
 ####	三、SDK接入步骤
+
+> 需将以前的工单SDK的aar包删除
+
 该版本以远程依赖方式接入：
 * 顶部Gradle配置
 ~~~
