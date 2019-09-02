@@ -49,9 +49,9 @@ repositories {
 }
 ~~~
 
-* 接入SDK所在Module的Gradle配置
+* 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~
-api "com.uhomebk:sdk:1.1.0"
+api "com.uhomebk:sdk:1.0.1"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 * SDK初始化流程
