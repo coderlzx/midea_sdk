@@ -13,13 +13,13 @@
     <dependency>
       <groupId>com.uhomebk</groupId>
       <artifactId>base</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.uhomebk</groupId>
       <artifactId>order</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
