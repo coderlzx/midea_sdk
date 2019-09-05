@@ -51,7 +51,7 @@ repositories {
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~
-api "com.uhomebk:sdk:1.0.2"
+api "com.uhomebk:sdk:1.0.3"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 * SDK初始化流程
@@ -72,7 +72,7 @@ api "com.uhomebk:sdk:1.0.2"
 	
 	* 监听待办工单数量可调用以下方法来监听：
 				`SegiOperatorHelper.addPendingOrderNumListener(PendingOrderNumListener listener)`
-				
+		
 	* 取消监听待办工单数量可调用以下方法：
 	`SegiOperatorHelper.removePendingOrderNumListener(PendingOrderNumListener listener)`
 	
