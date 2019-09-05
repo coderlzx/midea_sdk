@@ -38,7 +38,7 @@ api ("xxx:xxx:xxx") {
 
 该版本以远程依赖方式接入：
 * 顶部Gradle配置
-~~~
+~~~gradle
 buildscript:
 repositories {
     maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
@@ -50,10 +50,19 @@ repositories {
 ~~~
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
-~~~
+~~~gradle
 api "com.uhomebk:sdk:1.0.3"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
++ 增加对renderscript的配置
+
+```gradle
+renderscriptTargetApi 18
+renderscriptSupportModeEnabled true
+```
+
+
+
 * SDK初始化流程
 	* 需在Application中初始化：
 	  `SegiOperatorHelper.init(Application context, boolean isDebug)`
