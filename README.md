@@ -1,7 +1,35 @@
 #	工单SDK接入文档
 
+### 更新日志
+
++ v1.0.5
+
+  抽离配置，以更自由的支持多平台接入
+
+  + 移除方法saveSession(String appKey, String sessionInfo, SessionInitResultListener resultListener)，改为使用saveSession(String sessionInfo, SessionInitResultListener resultListener)进行账号初始化
+
+  + gradle配置增加以下几项：
+
+    ```gradle
+    manifestPlaceholders = [
+            BDAPP_KEY       : "百度SDK appKey",
+            BDAPP_TRACKID   : "鹰眼轨迹服务ID",
+            SEGI_APP_KEY    : "四格SDK appKey",
+            COMPANY_PLATFORM: "平台标识",
+            APP_PLATFORM    : "App标识",
+            SERVER_URL      : "SDK内部接口域名",
+            IMAGE_URL       : "SDK内部图片域名",
+            THUMB_URL       : "SDK内部缩略图域名",
+            intent_location : "包名",
+    ]
+    ```
+
+    
+
+### 使用说明
 
 ####	一、SDK使用的第三方依赖库
+
 |库名|版本|
 |:--:|:--:|
 |appcompat-v7|27.1.1|
@@ -51,7 +79,7 @@ repositories {
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
-api "com.uhomebk:sdk:1.0.4"
+api "com.uhomebk:sdk:1.0.5"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 + 增加对renderscript的配置
@@ -61,25 +89,52 @@ renderscriptTargetApi 18
 renderscriptSupportModeEnabled true
 ```
 
++ 增加相关参数配置
 
+```gradle
+manifestPlaceholders = [
+        BDAPP_KEY       : "百度SDK appKey",
+        BDAPP_TRACKID   : "鹰眼轨迹服务ID",
+        SEGI_APP_KEY    : "四格SDK appKey",
+        COMPANY_PLATFORM: "平台标识",
+        APP_PLATFORM    : "App标识",
+        SERVER_URL      : "SDK内部接口域名",
+        IMAGE_URL       : "SDK内部图片域名",
+        THUMB_URL       : "SDK内部缩略图域名",
+        intent_location : "包名",
+]
+```
+
++ 如遇到以下错误
+
+  <font color="red">More than one file was with OS independent path 'lib/mips/libRSSupport.so'</font>
+
+  请在当前Gradle中增加以下配置：
+
+  ```gradle
+  packagingOptions {
+          exclude 'lib/mips/libRSSupport.so'
+          exclude 'lib/mips/librsjni.so'
+  }
+  ```
+
+  
 
 * SDK初始化流程
 	* 需在Application中初始化：
 	  `SegiOperatorHelper.init(Application context, boolean isDebug)`
 	
 	* 用户登录后调用以下方法传递会话信息给SDK并监听初始化结果：
-	  `SegiOperatorHelper.saveSession(String appKey, String sessionInfo, SessionInitResultListener resultListener)`
-	
-	  其中appKey：为在四格申请过来的应用标识
+	  `SegiOperatorHelper.saveSession(String sessionInfo, SessionInitResultListener resultListener)`
 	
 	  sessionInfo：为第三方账号登录会话信息
+	
+	resultListener：可监听初始化结果
 
-  resultListener：可监听初始化结果
+  * 监听会话信息过期可调用以下方法来监听：
+	`SegiOperatorHelper.addExpiredSessionListener(ExpiredSessionListener listener)`
 	
-	* 监听会话信息过期可调用以下方法来监听：
-  `SegiOperatorHelper.addExpiredSessionListener(ExpiredSessionListener listener)`
-	
-	* 监听待办工单数量可调用以下方法来监听：
+  * 监听待办工单数量可调用以下方法来监听：
 				`SegiOperatorHelper.addPendingOrderNumListener(PendingOrderNumListener listener)`
 		
 	* 取消监听待办工单数量可调用以下方法：
