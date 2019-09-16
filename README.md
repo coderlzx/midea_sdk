@@ -166,36 +166,41 @@ manifestPlaceholders = [
   "title": "您有1条新的工单待处理，请及时处理",
   "type": "100700",
   "userType": "2",
-  "voice": "new_order.wav"
+  "voice": "new_order.wav"//声音文件名
 }
 	~~~
 	>以下方法会返回Intent，由于不在Activity中启动，需要增加Flag（Intent.FLAG_ACTIVITY_NEW_TASK）
 	
 	* 100700：待办工单类型
-`SegiOperatorHelper.orderDetailIntentForPush(serviceId,organId)`
+  `SegiOperatorHelper.orderDetailIntentForPush(serviceId,organId)`
+
+	  声音文件名：new_order.wav（新工单）、auto_hang_out_order.wav（自动解挂）、half_time_order.wav（耗时过半）、supervise_order.wav（被督办）、urgent_order.wav（被加急）、hang_up_uncheck.wav（超时未跟进）、hang_up_check.wav（待跟进）
 
 	* 100702：知会工单类型
-`SegiOperatorHelper.notifyOrderDetailIntentForPush(serviceId,organId)`
-	* 1130207：流程审批-我发起的
-`SegiOperatorHelper.myOAOrderListIntentForPush()`
+  `SegiOperatorHelper.notifyOrderDetailIntentForPush(serviceId,organId)`
 
-	* 1130318：流程审批-我审核的
-`SegiOperatorHelper.oaReviewIntentForPush()`
+	  声音文件名：notify_order.wav（知会）
 
-	* 600100：任务管理的计划
-`SegiOperatorHelper.planDetailIntentForPush(serviceId)`
+* 1130207：流程审批-我发起的
+	`SegiOperatorHelper.myOAOrderListIntentForPush()`
 
-	* 600200：任务管理的任务
-`SegiOperatorHelper.taskDetailIntentForPush(serviceId)`
+* 1130318：流程审批-我审核的
+	`SegiOperatorHelper.oaReviewIntentForPush()`
 
-	* 600300：任务管理的计划审批
-`SegiOperatorHelper.approvePlanIntentForPush(serviceId)`
+* 600100：任务管理的计划
+	`SegiOperatorHelper.planDetailIntentForPush(serviceId)`
+
+* 600200：任务管理的任务
+	`SegiOperatorHelper.taskDetailIntentForPush(serviceId)`
+
+* 600300：任务管理的计划审批
+	`SegiOperatorHelper.approvePlanIntentForPush(serviceId)`
 
 	* 600400：任务管理的预警消息
-`SegiOperatorHelper.warnDetailIntentForPush(serviceId)`
-
+	`SegiOperatorHelper.warnDetailIntentForPush(serviceId)`
+	
 	* EQUIPMENT_CHECK_MSG：设备提醒消息
-`SegiOperatorHelper.deviceAttentionIntentForPush()`
+	`SegiOperatorHelper.deviceAttentionIntentForPush()`
 
 
 
