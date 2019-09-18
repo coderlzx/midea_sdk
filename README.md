@@ -24,7 +24,11 @@
     ]
     ```
 
-    
++ v1.0.6
+
+  + 移除待办不必要接口
+  + 功能名称使用接口数据显示
+  + 功能入口不再由客户端控制，改为后台控制
 
 ### 使用说明
 
@@ -79,7 +83,7 @@ repositories {
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
-api "com.uhomebk:sdk:1.0.5"
+api "com.uhomebk:sdk:1.0.6"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 + 增加对renderscript的配置
@@ -128,20 +132,20 @@ manifestPlaceholders = [
 	  `SegiOperatorHelper.saveSession(String sessionInfo, SessionInitResultListener resultListener)`
 	
 	  sessionInfo：为第三方账号登录会话信息
-	
-	resultListener：可监听初始化结果
-
+	  
+	  resultListener：可监听初始化结果
+  
   * 监听会话信息过期可调用以下方法来监听：
-	`SegiOperatorHelper.addExpiredSessionListener(ExpiredSessionListener listener)`
+	  `SegiOperatorHelper.addExpiredSessionListener(ExpiredSessionListener listener)`
 	
   * 监听待办工单数量可调用以下方法来监听：
-				`SegiOperatorHelper.addPendingOrderNumListener(PendingOrderNumListener listener)`
-		
+	    `SegiOperatorHelper.addPendingOrderNumListener(PendingOrderNumListener listener)`
+	
 	* 取消监听待办工单数量可调用以下方法：
-	`SegiOperatorHelper.removePendingOrderNumListener(PendingOrderNumListener listener)`
+	  `SegiOperatorHelper.removePendingOrderNumListener(PendingOrderNumListener listener)`
 	
 	* 用户退出登录或者会话信息过期，则需要调用以下方法取消所有监听以及暂停其他服务：
-	`SegiOperatorHelper.destroy()`
+	  `SegiOperatorHelper.destroy()`
 	
 * 消息推送类型及相关方法调用
 	* 消息体
@@ -311,7 +315,7 @@ manifestPlaceholders = [
 + 枚举ResultCode有四种：
   + SUCCESS：成功
   + FAIL：失败
-  + NOT_EXIST_MODULE：不存在的功能，即为配置菜单权限
+  + NOT_EXIST_MODULE：不存在的功能，即为配置菜单权限（已无用）
   + UNAUTHORIZED：SDK鉴权失败或获取鉴权失败，此时无法打开功能模块，推送进来的功能页面不受限制
 
 * SegiOperatorHelper.clearCache()
