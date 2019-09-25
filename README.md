@@ -87,7 +87,7 @@ repositories {
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
-api "com.uhomebk:sdk:1.0.6"
+api "com.uhomebk:sdk:1.0.7"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 + 增加对renderscript的配置
