@@ -33,6 +33,13 @@
 + v1.0.7
 
   + SDK上线正式环境
+  
++ v1.0.8
+
+  + 支持关闭SDK内部对状态栏的设置，以兼容第三方应用对状态栏的全局设置，设置方法见下方`其他Api`的`statusBarSettingEnable`方法
+
+    
+  
 
 ### 使用说明
 
@@ -87,7 +94,7 @@ repositories {
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
-api "com.uhomebk:sdk:1.0.7"
+api "com.uhomebk:sdk:1.0.8"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 + 增加对renderscript的配置
@@ -366,6 +373,28 @@ manifestPlaceholders = [
 >打开任务管理页面
 >@return ResultCode 如返回ResultCode.NOT_EXIST_MODULE则表示功能入口菜单未配置
 
++ SegiOperatorHelper.statusBarSettingEnable(boolean)
+
+> SDK内部状态栏设置是否开启，默认开启
+>
+> 如需关闭，请调用此方法传入false，且需要重写以下Style资源：
+>
+> ~~~xml
+> <style name="CommonBg_Gray">
+>     <item name="android:background">@color/common_bg</item>
+> </style>
+> <style name="CommonBg_White">
+>     <item name="android:background">@color/white</item>
+> </style>
+> <style name="CommonBg_Theme">
+>     <item name="android:background">@color/theme</item>
+> </style>
+> <style name="fitsSystemWindowsTheme">
+> </style>
+> ~~~
+
+
 
 ####	附SDK初始化逻辑图
+
 ![SDK初始化逻辑](pic/SDK初始化逻辑.png)
