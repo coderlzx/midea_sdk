@@ -85,16 +85,38 @@ api ("xxx:xxx:xxx") {
 
 该版本以远程依赖方式接入：
 * 顶部Gradle配置
-~~~gradle
-buildscript:
-repositories {
-    maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
-}
-allprojects:
-repositories {
-    maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
-}
-~~~
+
+  + 远程库一
+
+    ```
+    buildscript:
+    repositories {
+        maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
+    }
+    allprojects:
+    repositories {
+        maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
+    }
+    ```
+
+  + 远程库二
+
+    ```
+    allprojects {
+        repositories {
+            maven {
+                url 'https://maven.aliyun.com/repository/public'
+            }
+            maven {
+                credentials {
+                    username 'xxx'//账号密码需要私聊
+                    password 'xxx'
+                }
+                url 'https://repo.rdc.aliyun.com/repository/106988-release-DvKrLL/'
+            }
+        }
+    }
+    ```
 
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
