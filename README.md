@@ -42,6 +42,11 @@
 
   + 修复选择附件弹窗未动态申请读取SD卡权限问题
   + 修复不使用内部状态栏设置情况下，图片编辑标题被遮挡问题
+  
++ v1.1.0
+
+  + 修复有偿服务支付后跳转失败问题
+  + 修复任务管理顶部菜单点击失败问题
 
 
 
@@ -86,41 +91,26 @@ api ("xxx:xxx:xxx") {
 该版本以远程依赖方式接入：
 * 顶部Gradle配置
 
-  + 远程库一
-
-    ```
-    buildscript:
-    repositories {
-        maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
-    }
-    allprojects:
-    repositories {
-        maven { url 'https://raw.githubusercontent.com/coderlzx/midea_sdk/master' }
-    }
-    ```
-
-  + 远程库二
-
-    ```
-    allprojects {
-        repositories {
-            maven {
-                url 'https://maven.aliyun.com/repository/public'
-            }
-            maven {
-                credentials {
-                    username 'xxx'//账号密码需要私聊
-                    password 'xxx'
-                }
-                url 'https://repo.rdc.aliyun.com/repository/106988-release-DvKrLL/'
-            }
+  ```
+allprojects {
+      repositories {
+          maven {
+              url 'https://maven.aliyun.com/repository/public'
+          }
+          maven {
+              credentials {
+                  username 'xxx'//账号密码需要私聊
+                  password 'xxx'
+              }
+              url 'https://repo.rdc.aliyun.com/repository/106988-release-DvKrLL/'
         }
-    }
-    ```
-
+      }
+}
+  ```
+  
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
-api "com.uhomebk:sdk:1.0.8"
+api "com.uhomebk:sdk:1.1.0"
 ~~~~
 >本次版本由于修改了SegiOperatorHelper类所在包名，需要重新Import
 + 增加对renderscript的配置
