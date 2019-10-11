@@ -91,7 +91,7 @@ api ("xxx:xxx:xxx") {
 该版本以远程依赖方式接入：
 * 顶部Gradle配置
 
-  ```
+```
 allprojects {
       repositories {
           maven {
@@ -106,8 +106,8 @@ allprojects {
         }
       }
 }
-  ```
-  
+```
+
 * 接入SDK所在Module的Gradle配置（对应3.9.5版本）
 ~~~gradle
 api "com.uhomebk:sdk:1.1.0"
