@@ -175,8 +175,9 @@ manifestPlaceholders = [
 	  `SegiOperatorHelper.destroy()`
 	
 * 消息推送类型及相关方法调用
+	
 	* 消息体
-	~~~
+```
 	{
   "categoryId": "1",
   "communityId": "67",
@@ -199,15 +200,15 @@ manifestPlaceholders = [
   "userType": "2",
   "voice": "new_order.wav"//声音文件名
 }
-	~~~
-	>以下方法会返回Intent，由于不在Activity中启动，需要增加Flag（Intent.FLAG_ACTIVITY_NEW_TASK）
-	
-	* 100700：待办工单类型
+```
+> 以下方法会返回Intent，由于不在Activity中启动，需要增加Flag（Intent.FLAG_ACTIVITY_NEW_TASK）
+
+* 100700：待办工单类型
   `SegiOperatorHelper.orderDetailIntentForPush(serviceId,organId)`
 
 	  声音文件名：new_order.wav（新工单）、auto_hang_out_order.wav（自动解挂）、half_time_order.wav（耗时过半）、supervise_order.wav（被督办）、urgent_order.wav（被加急）、hang_up_uncheck.wav（超时未跟进）、hang_up_check.wav（待跟进）
-
-	* 100702：知会工单类型
+	
+* 100702：知会工单类型
   `SegiOperatorHelper.notifyOrderDetailIntentForPush(serviceId,organId)`
 
 	  声音文件名：notify_order.wav（知会）
